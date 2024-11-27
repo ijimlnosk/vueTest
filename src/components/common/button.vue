@@ -39,7 +39,7 @@ export default defineComponent({
         const buttonTypeClasses = computed(() => {
             switch (props.type) {
                 case "primary":
-                    return "bg-blue-500 text-white border-blue-500 hover:bg-blue-600";
+                    return "bg-#00ffff text-#fff border-#00ffff hover:bg-#00faaa";
                 case "secondary":
                     return "bg-gray-500 text-white border-gray-500 hover:bg-gray-600";
                 case "danger":
