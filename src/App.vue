@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { ref } from "vue";
 import CommonButton from "./components/common/button.vue";
+import ComponentInput from "./components/common/input.vue";
 
 // Task 인터페이스 정의
 interface Task {
@@ -34,11 +35,12 @@ const deleteTask = (index: number): void => {
         <div class="bg-white rounded-lg shadow-lg p-6 w-full max-w-md">
             <h1 class="text-2xl font-bold mb-4 text-center">To-Do List</h1>
             <form @submit.prevent="addTask" class="flex mb-4">
-                <input
+                <component-input
+                    id="task-input"
+                    label="New Task"
                     v-model="newTask"
-                    type="text"
-                    placeholder="Add a new Task"
-                    class="flex-grow p-2 border rounded-l-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    placeholder="Enter your task here"
+                    :error="newTask.trim() === '' ? 'Task cannot be empty' : ''"
                 />
                 <common-button
                     label="Add Task"

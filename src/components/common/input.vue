@@ -6,7 +6,7 @@
         <input
             :id="id"
             :type="type"
-            :value="modeValue"
+            :value="modelValue"
             :placeholder="placeholder"
             :disabled="disabled"
             :class="[
@@ -35,6 +35,7 @@ export default defineComponent({
         disabled: { type: Boolean, default: false },
         error: { type: String, default: "" },
     },
+    emits: ["update:modelValue"],
     setup(props, { emit }) {
         const inputTypeClasses = computed(() => {
             return props.error
@@ -46,7 +47,7 @@ export default defineComponent({
             const target = event.target as HTMLInputElement;
 
             if (target) {
-                emit("updated:modelInput", target.value);
+                emit("update:modelValue", target.value);
             }
         };
 
